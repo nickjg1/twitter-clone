@@ -11,6 +11,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN npx prisma db push
@@ -33,8 +34,10 @@ COPY ./public/images/placeholder.png /app/public/images/
 
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 4033
 
-ENV PORT 3000
+ENV PORT 4033
+ENV NEXTAUTH_URL https://twitter.nickserver.win
+
 
 CMD ["npm", "start"]
